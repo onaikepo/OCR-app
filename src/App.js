@@ -32,6 +32,10 @@ function App() {
     }
   }
 
+  var dateOfBirth = textResult.substring(textResult.indexOf("UNITED KINGDOM"), textResult.indexOf("3 "))
+  //var dateOfBirth = textResult.substring(-1, textResult.indexOf("3 "), 9)
+  //var dateOfBirth = textResult.split("1", "2", "3", "4", "5", "6")
+
   return (
     <div className="App">
       <h1>CheckID: A Web App</h1>
@@ -49,6 +53,7 @@ function App() {
         {textResult && (
           <div className='box-p'>
             <p>{textResult}</p>
+            <p>Date of birth is: {dateOfBirth}</p>
           </div>
         )}
       </div>
