@@ -34,6 +34,13 @@ function App() {
 
   var dateOfBirth = textResult.substring(textResult.indexOf("UNITED KINGDOM"), textResult.indexOf("3 "))
   var dateOfBirthSplit = dateOfBirth.slice(-11);
+  var dateOfBirthAsDate = Date.parse(dateOfBirthSplit);
+  var todayDate = Date.now();
+  var finalDate = (todayDate - dateOfBirthAsDate) / 31556952000;
+  var checkAge = finalDate > 18;
+
+
+
   //var dateOfBirth = textResult.substring(-1, textResult.indexOf("3 "), 9)
   //var dateOfBirth = textResult.split("1", "2", "3", "4", "5", "6")
 
@@ -54,11 +61,12 @@ function App() {
         {textResult && (
           <div className='box-p'>
             <p>{textResult}</p>
-            <p>Date of birth is: {dateOfBirthSplit}</p>
+            <p>This User's Age Is {finalDate}</p>
+            This user <b>{checkAge ? 'PASSES' : 'FAILED'}</b> CheckID
           </div>
         )}
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 
